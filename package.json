@@ -1,0 +1,39 @@
+{
+	"name": "hard-drive-backup",
+	"version": "1.0.0",
+	"description": "A simple node app to copy all files from one drive to another",
+	"main": "src/index.js",
+	"repository": "git@github.com:tweenn/hard-drive-backup.git",
+	"author": "Felipe Zuntini Abella <felipezuntini@hotmail.com>",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"clean": "rm -rf ./dist/*",
+		"build": "pnpm clean; pnpm build:config; pnpm build:test; pnpm build:pkg",
+		"build:config": "ts-node ./src/config/index.ts",
+		"build:pkg": "pkg --out-path dist src/app/index.ts",
+		"build:mac": "pnpm build -t latest-macos-arm64",
+		"build:win": "pnpm build -t latest-win",
+		"build:test": "ts-node ./src/test-folder/index.ts"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^7.1.0",
+		"@typescript-eslint/parser": "^7.1.0",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-sonarjs": "^0.24.0",
+		"nodemon": "^3.1.0",
+		"pnpm": "^8.15.4",
+		"prettier": "^3.2.5",
+		"standard": "^17.1.0"
+	},
+	"dependencies": {
+		"@types/node": "^20.11.24",
+		"fs-extra": "^11.2.0",
+		"pkg": "^5.8.1",
+		"ts-node": "^10.9.2",
+		"tslib": "^2.6.2",
+		"typescript": "^5.3.3"
+	}
+}
